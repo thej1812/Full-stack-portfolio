@@ -3,6 +3,7 @@ import './home.css';
 import Particles from "@/assets/Particles/Particles";
 import ShinyText from "@/assets/ShinyText/ShinyText";
 import TrueFocus from "@/assets/TrueFocus/TrueFocus";
+import { Link } from "react-router-dom";
 
 import { FaRegCopy } from 'react-icons/fa';
 
@@ -93,7 +94,12 @@ const Home = () => {
               <li className="nav-item">Work</li>
               <li className="nav-item">Blog</li>
               <li className="nav-item">More</li>
-              <li><button onClick=""className="book-call-btn glass-card">Login</button></li>
+ 
+<li>
+  <Link to="/login">
+    <button className="book-call-btn glass-card">Login</button>
+  </Link>
+</li>
             </ul>
           </div>
         </nav>
