@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 .comments-container {
-  min-height: 100vh;
+  height: 100rem;
   background-color: black;
   background-attachment: fixed;
   color: white;
   font-family: "Lato", -apple-system, BlinkMacSystemFont, sans-serif;
   overflow-x: hidden;
   position: relative;
-  padding: 4rem 2rem 2rem 2rem;
+  
+  overflow-y:scroll;
 }
 
 
@@ -64,58 +65,6 @@
   color: #a78bfa;
   line-height: 1.6;
   margin-bottom: 2rem;
-}
-
-.comments-pinned-card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 20px;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
-  position: relative;
-  overflow: hidden;
-}
-
-.comments-pinned-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.3),
-    transparent
-  );
-}
-
-.comments-pinned-header {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  margin-bottom: 1rem;
-}
-
-.comments-pin-icon {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.comments-pinned-label {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.comments-pinned-text {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.95);
-  font-weight: 400;
 }
 
 .comments-login-section {
