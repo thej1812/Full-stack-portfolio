@@ -4,6 +4,7 @@ import Login from "./pages/login";
 import Signup from "./pages/signup";
 import AboutMe from "./pages/AboutMe"; // <-- Import your About Me page
 import Comments from "./pages/Comments";
+import Work  from "./pages/Work";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/about" element={<AboutMe />} />
       <Route path="/comments" element={<Comments/>}/>
+      <Route path="/work" element={<Work/>}/>
     </Routes>
   );
 }
