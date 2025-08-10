@@ -1,9 +1,10 @@
-// src/pages/Signup.tsx
-
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { saveToken } from '../utils/auth';
+import Particles from '@/assets/Particles/Particles';
+import SpotlightCard from '@/assets/SpotlightCard/SpotlightCard';
+import './signup.css';
 
 const Signup = () => {
   const [username, setUsername] = useState('');
@@ -27,72 +28,98 @@ const Signup = () => {
     }
   };
 
+  const handleLoginClick = () => {
+    navigate('/login');
+  };
+
+  const handleCancel = () => {
+    // Clear form data
+    setUsername('');
+    setPassword('');
+    setError('');
+    // Navigate to home or previous page
+    navigate('/');
+  };
+
   return (
-    <div style={styles.container}>
-      <h2 style={styles.heading}>Sign Up</h2>
-      <form onSubmit={handleSignup} style={styles.form}>
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={e => setUsername(e.target.value)}
-          required
-          style={styles.input}
+    <div className="signup-container">
+      {/* Particle Background */}
+      <div
+        style={{
+          width: '100%',
+          height: '100%',
+          position: 'absolute',
+          zIndex: 0,
+        }}
+      >
+        <Particles
+          particleColors={['#ffffff', '#ffffff']}
+          particleCount={100}
+          particleSpread={10}
+          speed={0.05}
+          particleBaseSize={100}
+          moveParticlesOnHover={true}
+          alphaParticles={false}
+          disableRotation={false}
         />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          required
-          style={styles.input}
-        />
-        <button type="submit" style={styles.button}>Create Account</button>
-        {error && <p style={styles.error}>{error}</p>}
-      </form>
+      </div>
+
+      {/* Spotlight Effect + Form */}
+      <SpotlightCard
+        className="custom-spotlight-card"
+        spotlightColor="rgba(211, 211, 211, 0.2)"
+      >
+        <div className="signup-form-wrapper">
+          <h2 className="signup-title">Sign Up</h2>
+          <form onSubmit={handleSignup} className="signup-form">
+            <input
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+              className="signup-input"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="signup-input"
+            />
+            
+            <div className="signup-button-group">
+              <button type="submit" className="signup-button">
+                Create Account
+              </button>
+              <button 
+                type="button" 
+                onClick={handleCancel}
+                className="signup-cancel-button"
+              >
+                Cancel
+              </button>
+            </div>
+            
+            {error && <p className="signup-error">{error}</p>}
+          </form>
+
+          {/* Link to Login */}
+          <div className="signup-login-link">
+            <p className="signup-login-text">Already have an account?</p>
+            <button
+              type="button"
+              onClick={handleLoginClick}
+              className="signup-login-button"
+            >
+              Click here to Login
+            </button>
+          </div>
+        </div>
+      </SpotlightCard>
     </div>
   );
-};
-
-const styles: { [key: string]: React.CSSProperties } = {
-  container: {
-    maxWidth: '400px',
-    margin: '60px auto',
-    padding: '20px',
-    border: '1px solid #ccc',
-    borderRadius: '12px',
-    backgroundColor: '#f9f9f9',
-    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-  },
-  heading: {
-    textAlign: 'center',
-    marginBottom: '20px',
-  },
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '12px',
-  },
-  input: {
-    padding: '10px',
-    borderRadius: '8px',
-    border: '1px solid #aaa',
-    fontSize: '16px',
-  },
-  button: {
-    padding: '10px',
-    borderRadius: '8px',
-    border: 'none',
-    backgroundColor: '#4CAF50',
-    color: 'white',
-    fontWeight: 'bold',
-    cursor: 'pointer',
-  },
-  error: {
-    color: 'red',
-    textAlign: 'center',
-    marginTop: '10px',
-  },
 };
 
 export default Signup;
