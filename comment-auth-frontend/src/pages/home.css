@@ -4,7 +4,10 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+html,body{
+   overflow-x: hidden;
+  overflow-y: hidden;
+}
 .home-container {
  
   background-attachment: fixed;
@@ -44,6 +47,7 @@
 
 .nav-links {
   list-style: none;
+  text-decoration: none;
   display: flex;
   align-items: center;
  
@@ -391,23 +395,25 @@
 /* -------------------
    Fluid liquid glass cursor
    ------------------- */
+
 .glass-cursor {
   position: fixed;
   top: 0;
   left: 0;
-  width: 186px;              /* visible size — tweak if desired */
+  width: 186px;
   height: 186px;
   border-radius: 50%;
-  pointer-events: none;     /* never block clicks */
-  transform: translate3d(-50%, -50%, 0);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
   z-index: 9999;
   transition: width 220ms linear, height 220ms linear, backdrop-filter 220ms linear, box-shadow 220ms linear;
   will-change: transform, width, height;
   display: block;
-
+  overflow: hidden;          /* Make sure nothing leaks outside */
+  clip-path: circle(50% at 50% 50%); /* Ensure round clipping */
+  
   /* glassy background */
   background: radial-gradient(closest-side, rgba(255,255,255,0.06), rgba(255,255,255,0.02) 60%, rgba(255,255,255,0.01) 100%);
-  
   backdrop-filter: blur(10px) saturate(120%);
   -webkit-backdrop-filter: blur(10px) saturate(120%);
   box-shadow: 0 8px 30px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.06);
