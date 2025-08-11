@@ -82,25 +82,25 @@ export default function Comments() {
         />
       </div>
 
-      <div className="home-container" style={{ position: 'relative', zIndex: 2 }}>
-        <nav className="navbar">
-          <div className="logo">AB</div>
-          <div className="nav-menu">
-            <ul className="nav-links glass-card">
-              <li className="nav-item active">Home</li>
-              <li className="nav-item">About</li>
-              <li className="nav-item">Work</li>
-              <li className="nav-item">Blog</li>
-              <li className="nav-item">More</li>
-              <li>
-                <Link to="/login">
-                  <button className="book-call-btn glass-card">Login</button>
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </nav>
-
+      <div className="about-me-container">
+             <nav className="navbar">
+               <div className="logo">TJ</div>
+               <div className="nav-menu">
+                 <ul className="nav-links glass-card">
+                   <li className="nav-item"><Link to="/">Home</Link></li>
+                    <li className="nav-item "><Link to="/work">Work</Link></li>
+                   <li className="nav-item  "><Link to="/about">About</Link></li>
+                 
+                   <li className="nav-item active"><Link to="/comments">Share your thoughts</Link></li>
+                   <li>
+                     <Link to="/login">
+                       <button className="book-call-btn glass-card">Login</button>
+                     </Link>
+                   </li>
+                 </ul>
+               </div>
+             </nav>
+      
         <div className="comments-header">
           <div className="comments-header-label">THE GUESTBOOK</div>
           <h1 className="comments-main-title">
