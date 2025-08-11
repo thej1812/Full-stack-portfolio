@@ -85,24 +85,25 @@ const Home = () => {
 
       {/* Main Content */}
       <div className="home-container" style={{ position: 'relative', zIndex: 2 }}>
-        <nav className="navbar">
-          <div className="logo">AB</div>
-          <div className="nav-menu">
-            <ul className="nav-links glass-card">
-              <li className="nav-item active">Home</li>
-              <li className="nav-item">About</li>
-              <li className="nav-item">Work</li>
-              <li className="nav-item">Blog</li>
-              <li className="nav-item">More</li>
- 
-<li>
-  <Link to="/login">
-    <button className="book-call-btn glass-card">Login</button>
-  </Link>
-</li>
-            </ul>
-          </div>
-        </nav>
+<nav className="navbar">
+  <div className="logo">TJ</div>
+  <div className="nav-menu">
+    <ul className="nav-links glass-card">
+      <li className="nav-item active"><a href="/">Home</a></li>
+       <li className="nav-item "><Link to="/work">Work</Link></li>
+      <li><a href="./about" className="nav-item">About</a></li>
+      
+       <li className="nav-item"><Link to="/comments">Share your thoughts</Link></li>
+     
+      <li>
+        <a href="./login">
+          <button className="book-call-btn glass-card">Login</button>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
 
         <div className="main-content">
           <div className="announcement"> 
@@ -126,7 +127,7 @@ const Home = () => {
               <span className="intro-text">Hello, I'm </span>
               <h4>
                 <TrueFocus 
-                  sentence="Abinaya Shree"
+                  sentence="Thej Ashwini"
                   manualMode={false}
                   blurAmount={5}
                   borderColor=""
@@ -148,11 +149,11 @@ const Home = () => {
                 <span className="btn-arrow">→</span>
               </button>
               <div className="email-section glass-card">
-                <span className="email">hello@aayushbharti.in</span>
+                <span className="email">thejashwini1800@gmail.com</span>
                 <FaRegCopy 
                   className="copy-icon"
                   onClick={() => {
-                    navigator.clipboard.writeText("hello@aayushbharti.in");
+                    navigator.clipboard.writeText("thejashwini1800@gmail.com");
                     alert("Email copied to clipboard!");
                   }}
                   title="Copy Email"
