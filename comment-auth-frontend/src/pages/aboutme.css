@@ -81,7 +81,9 @@ a {
   color: white;
   font-family: "Lato", -apple-system, BlinkMacSystemFont, sans-serif;
   overflow: hidden;
-  position: relative;
+  position: relative; /* Needed so particles are positioned relative to container */
+
+
 }
 
 /* New Layout Styles */
@@ -94,7 +96,10 @@ a {
   padding: 2rem 3rem;
   gap: 4rem;
   min-height: calc(100vh - 120px);
+    position: relative; /* bring above particles */
+  z-index: 1;
 }
+
 
 .about-left {
   flex: 1;
@@ -374,3 +379,15 @@ a {
     animation: none !important;
   }
 }
+.stellar-gradient-heading {
+  font-size: 5rem;
+  font-weight: 800;
+font-style: italic;
+  font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
