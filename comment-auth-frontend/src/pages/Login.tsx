@@ -2,8 +2,8 @@ import { useState } from 'react';
 import axios from 'axios';
 import { saveToken } from '../utils/auth';
 import { useNavigate } from 'react-router-dom';
-import Particles from "@/assets/Particles/Particles";
-import SpotlightCard from '@/assets/SpotlightCard/SpotlightCard';
+import Particles from "../assets/Particles/Particles";
+import SpotlightCard from '../assets/SpotlightCard/SpotlightCard';
 import './login.css';
 
 export default function Login() {

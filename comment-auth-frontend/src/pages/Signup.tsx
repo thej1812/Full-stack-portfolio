@@ -2,8 +2,8 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { saveToken } from '../utils/auth';
-import Particles from '@/assets/Particles/Particles';
-import SpotlightCard from '@/assets/SpotlightCard/SpotlightCard';
+import Particles from '../assets/Particles/Particles';
+import SpotlightCard from '../assets/SpotlightCard/SpotlightCard';
 import './signup.css';
 
 const Signup = () => {
