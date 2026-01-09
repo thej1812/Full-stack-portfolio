@@ -3,7 +3,7 @@ import axios from 'axios';
 import { getToken } from '../utils/auth';
 import { useNavigate, Link } from 'react-router-dom';
 import './comments.css';
-import Particles from '@/assets/Particles/Particles';
+import Particles from '../assets/Particles/Particles';
 
 // ✅ API base URL from Vite environment
 const API_URL = import.meta.env.VITE_API_URL;
