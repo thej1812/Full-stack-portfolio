@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom'; // ✅ Import Link
 import './work.css';
-import Particles from '@/assets/Particles/Particles';
+import Particles from '../assets/Particles/Particles';
 
 interface Project {
   id: number;
