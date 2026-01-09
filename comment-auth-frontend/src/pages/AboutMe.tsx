@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import CardSwap, { Card } from '@/assets/CardSwap/CardSwap';
-import Particles from '@/assets/Particles/Particles';
+import CardSwap, { Card } from '../assets/CardSwap/CardSwap';
+import Particles from '../assets/Particles/Particles';
 import './aboutme.css';
 import './home.css';
 
@@ -45,7 +45,7 @@ export default function AboutMe() {
         <div className="about-content">
           {/* Left Side */}
           <div className="about-left">
-           <h1 class="stellar-gradient-heading ">
+           <h1 className="stellar-gradient-heading ">
   <span >About Me</span>
 </h1>
 
