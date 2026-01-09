@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react"; // ADD this (if React already in scope, just add useEffect/useRef)
 import './home.css';
-import Particles from "@/assets/Particles/Particles";
-import ShinyText from "@/assets/ShinyText/ShinyText";
-import TrueFocus from "@/assets/TrueFocus/TrueFocus";
+import Particles from "./assets/Particles/Particles";
+import ShinyText from "./assets/ShinyText/ShinyText";
+import TrueFocus from "./assets/TrueFocus/TrueFocus";
 import { Link } from "react-router-dom";
 
 import { FaRegCopy } from 'react-icons/fa';
