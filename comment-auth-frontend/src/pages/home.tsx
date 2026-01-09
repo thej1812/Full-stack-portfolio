@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react"; // ADD this (if React already in scope, just add useEffect/useRef)
 import './home.css';
-import Particles from "./assets/Particles/Particles";
-import ShinyText from "./assets/ShinyText/ShinyText";
-import TrueFocus from "./assets/TrueFocus/TrueFocus";
+import Particles from "../assets/Particles/Particles";
+import ShinyText from "../assets/ShinyText/ShinyText";
+import TrueFocus from "../assets/TrueFocus/TrueFocus";
 import { Link } from "react-router-dom";
 
 import { FaRegCopy } from 'react-icons/fa';
@@ -12,18 +12,21 @@ const Home = () => {
   const cursorRef = useRef(null);
   const pos = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
   const mouse = useRef({ x: pos.current.x, y: pos.current.y });
-  const rafRef = useRef(null);
+ const rafRef = useRef<number | null>(null);
+
 
   useEffect(() => {
-    const cursor = cursorRef.current;
-    if (!cursor) return;
+   const cursor = document.querySelector('.glass-cursor') as HTMLDivElement | null;
+if (!cursor) return;
+
 
     // Hide native cursor inside the home container (keeps system cursor for inputs)
-    const container = document.querySelector('.home-container');
+    const container = document.querySelector('.container') as HTMLElement | null;
+
     if (container) container.style.cursor = 'none';
 
     // Mouse position handler
-    const onMove = (e) => {
+    const onMove = (e: MouseEvent) => {
       mouse.current.x = e.clientX;
       mouse.current.y = e.clientY;
       // small scale on pointerdown for click feedback
@@ -52,6 +55,7 @@ const Home = () => {
       // apply transform (centered)
       cursor.style.transform = `translate3d(${pos.current.x - cursor.offsetWidth / 2}px, ${pos.current.y - cursor.offsetHeight / 2}px, 0)`;
       rafRef.current = requestAnimationFrame(tick);
+
     };
     tick();
 
@@ -59,7 +63,10 @@ const Home = () => {
       window.removeEventListener('pointermove', onMove);
       window.removeEventListener('pointerdown', onDown);
       window.removeEventListener('pointerup', onUp);
-      cancelAnimationFrame(rafRef.current);
+     if (rafRef.current !== null) {
+  cancelAnimationFrame(rafRef.current);
+}
+
       if (container) container.style.cursor = ''; // restore
     };
   }, []);
