@@ -3,7 +3,10 @@ import axios from 'axios';
 import { getToken } from '../utils/auth';
 import { useNavigate, Link } from 'react-router-dom';
 import './comments.css';
-import Particles from '@/assets/Particles/Particles'; // ✅ adjust path to your Particles component
+import Particles from '@/assets/Particles/Particles';
+
+// ✅ API base URL from Vite environment
+const API_URL = import.meta.env.VITE_API_URL;
 
 interface Comment {
   _id: string;
@@ -18,14 +21,18 @@ export default function Comments() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
+  // 🔹 Fetch comments on load
   useEffect(() => {
-    axios.get('http://localhost:5000/api/comments')
-      .then(res => setComments(res.data));
+    axios
+      .get(`${API_URL}/api/comments`)
+      .then(res => setComments(res.data))
+      .catch(err => console.error('Error fetching comments:', err));
 
     const token = getToken();
     setIsLoggedIn(!!token);
   }, []);
 
+  // 🔹 Post a new comment
   const postComment = async () => {
     const token = getToken();
     if (!token) {
@@ -35,10 +42,15 @@ export default function Comments() {
 
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/comments',
+        `${API_URL}/api/comments`,
         { content },
-        { headers: { Authorization: `Bearer ${token}` } }
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
+
       setComments([res.data, ...comments]);
       setContent('');
     } catch (error) {
@@ -83,24 +95,23 @@ export default function Comments() {
       </div>
 
       <div className="about-me-container">
-             <nav className="navbar">
-               <div className="logo">TJ</div>
-               <div className="nav-menu">
-                 <ul className="nav-links glass-card">
-                   <li className="nav-item"><Link to="/">Home</Link></li>
-                    <li className="nav-item "><Link to="/work">Work</Link></li>
-                   <li className="nav-item  "><Link to="/about">About</Link></li>
-                 
-                   <li className="nav-item active"><Link to="/comments">Share your thoughts</Link></li>
-                   <li>
-                     <Link to="/login">
-                       <button className="book-call-btn glass-card">Login</button>
-                     </Link>
-                   </li>
-                 </ul>
-               </div>
-             </nav>
-      
+        <nav className="navbar">
+          <div className="logo">TJ</div>
+          <div className="nav-menu">
+            <ul className="nav-links glass-card">
+              <li className="nav-item"><Link to="/">Home</Link></li>
+              <li className="nav-item"><Link to="/work">Work</Link></li>
+              <li className="nav-item"><Link to="/about">About</Link></li>
+              <li className="nav-item active"><Link to="/comments">Share your thoughts</Link></li>
+              <li>
+                <Link to="/login">
+                  <button className="book-call-btn glass-card">Login</button>
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
         <div className="comments-header">
           <div className="comments-header-label">THE GUESTBOOK</div>
           <h1 className="comments-main-title">
@@ -129,7 +140,7 @@ export default function Comments() {
               className="comments-textarea"
               value={content}
               onChange={e => setContent(e.target.value)}
-              placeholder="Share your thoughts, feedback, or just say hello! What would you like to tell me?"
+              placeholder="Share your thoughts, feedback, or just say hello!"
               rows={4}
             />
             <button
@@ -165,7 +176,7 @@ export default function Comments() {
               className="comments-content"
               style={{ textAlign: 'center', fontStyle: 'italic' }}
             >
-              No messages yet. Be the first to leave a comment! 💬
+              No messages yet. Be the first to leave a comment!
             </div>
           </div>
         )}
