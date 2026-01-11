@@ -8,7 +8,7 @@
 
 html,body{
   overflow-x: hidden;
-  overflow-y: hidden;
+  
 }
 
 .navbar {
@@ -75,7 +75,7 @@ a {
 }
 
 .about-me-container {
-  min-height: 100vh;
+  
   background-color: black;
   background-attachment: fixed;
   color: white;
@@ -91,11 +91,11 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1400px;
+ 
   margin: 0 auto;
-  padding: 2rem 3rem;
+  padding: 0.4rem 3rem;
   gap: 4rem;
-  min-height: calc(100vh - 120px);
+  
     position: relative; /* bring above particles */
   z-index: 1;
 }
@@ -117,10 +117,11 @@ a {
   height: 600px;
   width: 600px;
   position: relative;
+  bottom: 40px;
 }
 
 .about-left h2 {
-  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-size:2rem;
   font-weight: 900;
   margin-bottom: 2rem;
   letter-spacing: -0.02em;
@@ -128,11 +129,11 @@ a {
 }
 
 .about-description {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.6;
-  margin-bottom: 3rem;
+  margin-bottom: 30px;
 }
 
 /* Social Links Styles */
@@ -140,7 +141,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 .social-icon {
@@ -187,7 +188,7 @@ a {
 .contact-btn {
   padding: 1rem 2rem;
   border: none;
-  border-radius: 12px;
+  border-radius: 20px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -380,7 +381,7 @@ a {
   }
 }
 .stellar-gradient-heading {
-  font-size: 5rem;
+  font-size: 3rem;
   font-weight: 800;
 font-style: italic;
   font-family: 'Georgia', serif;
