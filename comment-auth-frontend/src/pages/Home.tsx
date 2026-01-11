@@ -8,68 +8,6 @@ import { Link } from "react-router-dom";
 import { FaRegCopy } from 'react-icons/fa';
 
 const Home = () => {
-  // --- NEW: refs & lerp state for smooth "fluid" movement
-  const cursorRef = useRef(null);
-  const pos = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
-  const mouse = useRef({ x: pos.current.x, y: pos.current.y });
- const rafRef = useRef<number | null>(null);
-
-
-  useEffect(() => {
-   const cursor = document.querySelector('.glass-cursor') as HTMLDivElement | null;
-if (!cursor) return;
-
-
-    // Hide native cursor inside the home container (keeps system cursor for inputs)
-    const container = document.querySelector('.container') as HTMLElement | null;
-
-    if (container) container.style.cursor = 'none';
-
-    // Mouse position handler
-    const onMove = (e: MouseEvent) => {
-      mouse.current.x = e.clientX;
-      mouse.current.y = e.clientY;
-      // small scale on pointerdown for click feedback
-      if (e.type === 'pointerdown') {
-        cursor.classList.add('glass-cursor--down');
-      }
-    };
-    const onDown = () => cursor.classList.add('glass-cursor--down');
-    const onUp = () => cursor.classList.remove('glass-cursor--down');
-
-    window.addEventListener('pointermove', onMove);
-    window.addEventListener('pointerdown', onDown);
-    window.addEventListener('pointerup', onUp);
-    window.addEventListener('resize', () => {
-      pos.current.x = window.innerWidth / 2;
-      pos.current.y = window.innerHeight / 2;
-    });
-
-    // Smooth lerp animation
-    const ease = 0.16;
-    const tick = () => {
-      // lerp towards mouse
-      pos.current.x += (mouse.current.x - pos.current.x) * ease;
-      pos.current.y += (mouse.current.y - pos.current.y) * ease;
-
-      // apply transform (centered)
-      cursor.style.transform = `translate3d(${pos.current.x - cursor.offsetWidth / 2}px, ${pos.current.y - cursor.offsetHeight / 2}px, 0)`;
-      rafRef.current = requestAnimationFrame(tick);
-
-    };
-    tick();
-
-    return () => {
-      window.removeEventListener('pointermove', onMove);
-      window.removeEventListener('pointerdown', onDown);
-      window.removeEventListener('pointerup', onUp);
-     if (rafRef.current !== null) {
-  cancelAnimationFrame(rafRef.current);
-}
-
-      if (container) container.style.cursor = ''; // restore
-    };
-  }, []);
 
   return (
     <>
@@ -88,7 +26,7 @@ if (!cursor) return;
       </div>
 
       {/* --- NEW: Glass cursor element (only addition) */}
-      <div ref={cursorRef} className="glass-cursor" aria-hidden="true"></div>
+    
 
       {/* Main Content */}
       <div className="home-container" style={{ position: 'relative', zIndex: 2 }}>
