@@ -83,10 +83,10 @@ const Home = () => {
               <img
                 className="profile-img"
                 src="https://avatars.githubusercontent.com/u/167193306?s=400&u=98bdd2b76fffd2b49a16ccfbed19ad1e873f37a0&v=4"
-                alt="Aayush Bharti"
+                alt="Thejashwini"
               />
               <span className="role"> a Full Stack Developer</span>
-            </div>
+            </div>    
 
             <div className="cta-section">
               <button className="connect-btn">
