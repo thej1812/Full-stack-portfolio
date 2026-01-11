@@ -103,7 +103,7 @@ if (!cursor) return;
        <li className="nav-item"><Link to="/comments">Share your thoughts</Link></li>
      
       <li>
-        <a href="./login">
+        <a href="/Login">
           <button className="book-call-btn glass-card">Login</button>
         </a>
       </li>
