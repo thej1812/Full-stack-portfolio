@@ -16,7 +16,7 @@ interface Project {
 }
 
 export default function Work() {
-  const cursorRef = useRef<HTMLDivElement | null>(null);
+  
 
   const projects: Project[] = [
     {
@@ -103,8 +103,7 @@ export default function Work() {
         />
       </div>
 
-      {/* Glass cursor */}
-      <div ref={cursorRef} className="glass-cursor" aria-hidden="true"></div>
+    
 
       {/* Main Content */}
       <div className="about-me-container" style={{ position: 'relative', zIndex: 2 }}>
